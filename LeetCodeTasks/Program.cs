@@ -3,18 +3,18 @@ using LeetCodeTasks.Tasks;
 
 
 
-var tasks = new List<ITask>();
+var tasks = new List<IProblem>();
 
-tasks.Add(new Task1());
-tasks.Add(new Task2());
-tasks.Add(new Task3());
-tasks.Add(new Task4());
+tasks.Add(new Problem1());
+tasks.Add(new Problem2());
+tasks.Add(new Problem3());
+tasks.Add(new Problem4());
 
 for (int i = 0; i < tasks.Count; i++)
 {
     var task = tasks[i];
 
-    Console.WriteLine($"Task № {i + 1}:");
+    Console.WriteLine($"Problem № {i + 1}:");
 
     try
     {

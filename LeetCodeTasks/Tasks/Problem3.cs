@@ -1,10 +1,10 @@
 ﻿using LeetCodeTasks.Contracts;
-using LeetCodeTasks.TaskItems;
+using LeetCodeTasks.ProblemItems;
 using System.Text;
 
 namespace LeetCodeTasks.Tasks
 {
-    #region TaskCondition
+    #region ProblemCondition
 
     /// <summary>
 
@@ -39,9 +39,9 @@ namespace LeetCodeTasks.Tasks
 
     #endregion
 
-    internal class Task3 : TaskBase<Task3.Output, Task3.Input>
+    internal class Problem3 : ProblemBase<Problem3.Output, Problem3.Input>
     {
-        #region TaskItems
+        #region ProblemItems
 
         public class ListNode : IEquatable<ListNode>
         {
@@ -124,11 +124,11 @@ namespace LeetCodeTasks.Tasks
 
         #endregion
 
-        #region TaskSetup
+        #region ProblemSetup
 
-        public Task3()
+        public Problem3()
         {
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(
                         new ListNode(
@@ -147,7 +147,7 @@ namespace LeetCodeTasks.Tasks
                                     8))))
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(
                         new ListNode(0),
@@ -157,7 +157,7 @@ namespace LeetCodeTasks.Tasks
                         new ListNode(0))
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(
                         new ListNode(
@@ -189,7 +189,7 @@ namespace LeetCodeTasks.Tasks
 
         #endregion
 
-        #region Solution
+        #region ProblemSolution
 
         protected override Output Solution(Input input)
         {

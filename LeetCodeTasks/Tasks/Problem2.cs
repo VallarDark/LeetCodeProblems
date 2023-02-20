@@ -1,9 +1,9 @@
 ﻿using LeetCodeTasks.Contracts;
-using LeetCodeTasks.TaskItems;
+using LeetCodeTasks.ProblemItems;
 
 namespace LeetCodeTasks.Tasks
 {
-    #region TaskCondition
+    #region ProblemCondition
     /// <summary>
 
     /// Given an array of integers nums and an integer target,
@@ -37,9 +37,9 @@ namespace LeetCodeTasks.Tasks
 
     #endregion
 
-    internal class Task2 : TaskBase<Task2.Output, Task2.Input>
+    internal class Problem2 : ProblemBase<Problem2.Output, Problem2.Input>
     {
-        #region TaskItems
+        #region ProblemItems
 
         internal class Input
         {
@@ -76,23 +76,23 @@ namespace LeetCodeTasks.Tasks
 
         #endregion
 
-        #region TaskSetup
+        #region ProblemSetup
 
-        public Task2()
+        public Problem2()
         {
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 2, 7, 11, 15 }, 9),
                     correctResult: new Output(new[] { 0, 1 })
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 3, 2, 4 }, 6),
                     correctResult: new Output(new[] { 1, 2 })
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 3, 3 }, 6),
                     correctResult: new Output(new[] { 0, 1 })
@@ -101,7 +101,7 @@ namespace LeetCodeTasks.Tasks
 
         #endregion
 
-        #region Solution
+        #region ProblemSolution
 
         protected override Output Solution(Input input)
         {

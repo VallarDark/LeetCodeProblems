@@ -1,10 +1,10 @@
 ﻿using LeetCodeTasks.Contracts;
-using LeetCodeTasks.TaskItems;
+using LeetCodeTasks.ProblemItems;
 using System.Text;
 
 namespace LeetCodeTasks.Tasks
 {
-    #region TaskCondition
+    #region ProblemCondition
 
     /// <summary>
 
@@ -38,9 +38,9 @@ namespace LeetCodeTasks.Tasks
 
     #endregion
 
-    internal class Task4 : TaskBase<Task4.Output, Task4.Input>
+    internal class Problem4 : ProblemBase<Problem4.Output, Problem4.Input>
     {
-        #region TaskItems
+        #region ProblemItems
 
         internal class Input
         {
@@ -69,34 +69,34 @@ namespace LeetCodeTasks.Tasks
 
         #endregion
 
-        #region TaskSetup
-        public Task4()
+        #region ProblemSetup
+        public Problem4()
         {
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("abcabcbb"),
                     correctResult: new Output(3)
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("bbbbb"),
                     correctResult: new Output(1)
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("pwwkew"),
                     correctResult: new Output(3)
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(" "),
                     correctResult: new Output(1)
                 ));
 
-            _TaskExamples.Add(new TaskTestCase<Output, Input>
+            _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("dvdf"),
                     correctResult: new Output(3)
@@ -105,7 +105,7 @@ namespace LeetCodeTasks.Tasks
 
         #endregion
 
-        #region Solution
+        #region ProblemSolution
 
         protected override Output Solution(Input input)
         {
