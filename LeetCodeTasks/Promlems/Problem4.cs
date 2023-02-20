@@ -2,7 +2,7 @@
 using LeetCodeTasks.ProblemItems;
 using System.Text;
 
-namespace LeetCodeTasks.Tasks
+namespace LeetCodeTasks.Promlems
 {
     #region ProblemCondition
 

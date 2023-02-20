@@ -2,7 +2,7 @@
 using LeetCodeTasks.ProblemItems;
 using System.Text;
 
-namespace LeetCodeTasks.Tasks
+namespace LeetCodeTasks.Promlems
 {
     #region ProblemCondition
 
@@ -63,11 +63,11 @@ namespace LeetCodeTasks.Tasks
 
                 StringBuilder result = new StringBuilder();
 
-                result.Append(this.val);
+                result.Append(val);
 
-                if (this.next != null)
+                if (next != null)
                 {
-                    result.Append("->" + this.next);
+                    result.Append("->" + next);
                 }
 
                 return result.ToString();

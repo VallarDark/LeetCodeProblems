@@ -1,7 +1,7 @@
 ﻿using LeetCodeTasks.Contracts;
 using LeetCodeTasks.ProblemItems;
 
-namespace LeetCodeTasks.Tasks
+namespace LeetCodeTasks.Promlems
 {
     #region ProblemCondition
     /// <summary>
@@ -65,12 +65,12 @@ namespace LeetCodeTasks.Tasks
 
             public bool Equals(Output? other)
             {
-                if (other == null || other.Numbs == null || this.Numbs == null)
+                if (other == null || other.Numbs == null || Numbs == null)
                 {
                     return false;
                 }
 
-                return Enumerable.SequenceEqual(other.Numbs, Numbs);
+                return other.Numbs.SequenceEqual(Numbs);
             }
         }
 

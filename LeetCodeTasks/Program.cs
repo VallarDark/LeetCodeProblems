@@ -1,7 +1,5 @@
 ﻿using LeetCodeTasks.Contracts;
-using LeetCodeTasks.Tasks;
-
-
+using LeetCodeTasks.Promlems;
 
 var tasks = new List<IProblem>();
 

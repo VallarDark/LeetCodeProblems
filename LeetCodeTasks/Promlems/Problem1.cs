@@ -1,7 +1,7 @@
 ﻿using LeetCodeTasks.Contracts;
 using LeetCodeTasks.ProblemItems;
 
-namespace LeetCodeTasks.Tasks
+namespace LeetCodeTasks.Promlems
 {
     #region ProblemCondition
 
