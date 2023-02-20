@@ -28,54 +28,54 @@ namespace LeetCodeTasks.Tasks
 
     #endregion
 
-    #region TaskItems
-
-    internal class Task1Input
+    internal class Task1 : TaskBase<Task1.Output, Task1.Input>
     {
-        public int Start { get; set; }
+        #region TaskItems
 
-        public int End { get; set; }
-
-        public Task1Input(int start, int end)
+        internal class Input
         {
-            Start = start;
-            End = end;
-        }
-    }
+            public int Start { get; set; }
 
-    internal class Task1Output : IEquatable<Task1Output>
-    {
-        public int Result { get; set; }
+            public int End { get; set; }
 
-        public Task1Output(int result)
-        {
-            Result = result;
+            public Input(int start, int end)
+            {
+                Start = start;
+                End = end;
+            }
         }
 
-        public bool Equals(Task1Output? other)
+        internal class Output : IEquatable<Output>
         {
-            return other?.Result == Result;
+            public int Result { get; set; }
+
+            public Output(int result)
+            {
+                Result = result;
+            }
+
+            public bool Equals(Output? other)
+            {
+                return other?.Result == Result;
+            }
         }
-    }
 
-    #endregion
+        #endregion
 
-    internal class Task1 : TaskBase<Task1Output, Task1Input>
-    {
         #region TaskSetup
 
         public Task1()
         {
-            _TaskExamples.Add(new TaskExample<Task1Output, Task1Input>
+            _TaskExamples.Add(new TaskTestCase<Output, Input>
                 (
-                    inputData: new Task1Input(3, 7),
-                    correctResult: new Task1Output(3)
+                    inputData: new Input(3, 7),
+                    correctResult: new Output(3)
                 ));
 
-            _TaskExamples.Add(new TaskExample<Task1Output, Task1Input>
+            _TaskExamples.Add(new TaskTestCase<Output, Input>
                 (
-                    inputData: new Task1Input(8, 10),
-                    correctResult: new Task1Output(1)
+                    inputData: new Input(8, 10),
+                    correctResult: new Output(1)
                 ));
         }
 
@@ -83,9 +83,9 @@ namespace LeetCodeTasks.Tasks
 
         #region Solution
 
-        protected override Task1Output Solution(Task1Input input)
+        protected override Output Solution(Input input)
         {
-            return new Task1Output(CountOdds(input.Start, input.End));
+            return new Output(CountOdds(input.Start, input.End));
         }
 
         private int CountOdds(int start, int end)

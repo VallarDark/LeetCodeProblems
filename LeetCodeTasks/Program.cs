@@ -8,6 +8,7 @@ var tasks = new List<ITask>();
 tasks.Add(new Task1());
 tasks.Add(new Task2());
 tasks.Add(new Task3());
+tasks.Add(new Task4());
 
 for (int i = 0; i < tasks.Count; i++)
 {

@@ -7,12 +7,12 @@ namespace LeetCodeTasks.Contracts
     {
         private TaskSolution<TaskOutput, TaskInput> _taskSolution;
 
-        protected readonly List<TaskExample<TaskOutput, TaskInput>> _TaskExamples;
+        protected readonly List<TaskTestCase<TaskOutput, TaskInput>> _TaskExamples;
 
         public TaskBase()
         {
             _taskSolution = new TaskSolution<TaskOutput, TaskInput>(Solution);
-            _TaskExamples = new List<TaskExample<TaskOutput, TaskInput>>();
+            _TaskExamples = new List<TaskTestCase<TaskOutput, TaskInput>>();
         }
 
         public virtual bool Check()

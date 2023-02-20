@@ -37,65 +37,65 @@ namespace LeetCodeTasks.Tasks
 
     #endregion
 
-    #region TaskItems
-
-    internal class Task2Input
+    internal class Task2 : TaskBase<Task2.Output, Task2.Input>
     {
-        public int[] Numbs { get; set; }
+        #region TaskItems
 
-        public int Target { get; set; }
-
-        public Task2Input(int[] nums, int target)
+        internal class Input
         {
-            Numbs = nums;
-            Target = target;
-        }
-    }
+            public int[] Numbs { get; set; }
 
-    internal class Task2Output : IEquatable<Task2Output>
-    {
-        public int[]? Numbs { get; set; }
+            public int Target { get; set; }
 
-        public Task2Output(int[]? nums)
-        {
-            Numbs = nums;
-        }
-
-        public bool Equals(Task2Output? other)
-        {
-            if (other == null || other.Numbs == null || this.Numbs == null)
+            public Input(int[] nums, int target)
             {
-                return false;
+                Numbs = nums;
+                Target = target;
+            }
+        }
+
+        internal class Output : IEquatable<Output>
+        {
+            public int[]? Numbs { get; set; }
+
+            public Output(int[]? nums)
+            {
+                Numbs = nums;
             }
 
-            return Enumerable.SequenceEqual(other.Numbs, Numbs);
+            public bool Equals(Output? other)
+            {
+                if (other == null || other.Numbs == null || this.Numbs == null)
+                {
+                    return false;
+                }
+
+                return Enumerable.SequenceEqual(other.Numbs, Numbs);
+            }
         }
-    }
 
-    #endregion
+        #endregion
 
-    internal class Task2 : TaskBase<Task2Output, Task2Input>
-    {
         #region TaskSetup
 
         public Task2()
         {
-            _TaskExamples.Add(new TaskExample<Task2Output, Task2Input>
+            _TaskExamples.Add(new TaskTestCase<Output, Input>
                 (
-                    inputData: new Task2Input(new[] { 2, 7, 11, 15 }, 9),
-                    correctResult: new Task2Output(new[] { 0, 1 })
+                    inputData: new Input(new[] { 2, 7, 11, 15 }, 9),
+                    correctResult: new Output(new[] { 0, 1 })
                 ));
 
-            _TaskExamples.Add(new TaskExample<Task2Output, Task2Input>
+            _TaskExamples.Add(new TaskTestCase<Output, Input>
                 (
-                    inputData: new Task2Input(new[] { 3, 2, 4 }, 6),
-                    correctResult: new Task2Output(new[] { 1, 2 })
+                    inputData: new Input(new[] { 3, 2, 4 }, 6),
+                    correctResult: new Output(new[] { 1, 2 })
                 ));
 
-            _TaskExamples.Add(new TaskExample<Task2Output, Task2Input>
+            _TaskExamples.Add(new TaskTestCase<Output, Input>
                 (
-                    inputData: new Task2Input(new[] { 3, 3 }, 6),
-                    correctResult: new Task2Output(new[] { 0, 1 })
+                    inputData: new Input(new[] { 3, 3 }, 6),
+                    correctResult: new Output(new[] { 0, 1 })
                 ));
         }
 
@@ -103,9 +103,9 @@ namespace LeetCodeTasks.Tasks
 
         #region Solution
 
-        protected override Task2Output Solution(Task2Input input)
+        protected override Output Solution(Input input)
         {
-            return new Task2Output(TwoSum(input.Numbs, input.Target));
+            return new Output(TwoSum(input.Numbs, input.Target));
         }
 
         private int[]? TwoSum(int[] nums, int target)
