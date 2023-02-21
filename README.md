@@ -14,6 +14,7 @@ And add new test cases in constructor in <b>_ProblemTestCases</b> list
    
    
 And also you should write your own problem <b>Input/Output</b> classes because all problems have different input/output data  
+   
 ![image](https://user-images.githubusercontent.com/65999338/220447316-e4e08611-83b0-4c75-9b36-98dae8ba1cf4.png)
     
     
