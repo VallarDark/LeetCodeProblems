@@ -24,5 +24,5 @@ and implementing <b>IDiagnosable</b> interface for your current task
    
 ![image](https://user-images.githubusercontent.com/65999338/220447089-116cc8e2-7a8a-4a48-8fb3-861b4f8e13b2.png)
 
-To see your benchmark testing result in right order you should override <b>ToString()</b> method for your <b>Output</b> class
+To see your benchmark testing result in right order you should override <b>ToString()</b> method for your <b>Input</b> class
    
