@@ -1,6 +1,6 @@
 ﻿namespace LeetCodeTasks.ProblemItems
 {
-    internal class ProblemTestCase<OutputData, InputData>
+    public class ProblemTestCase<OutputData, InputData>
     {
         public InputData Input { get; set; }
 

@@ -28,11 +28,11 @@ namespace LeetCodeTasks.Promlems
 
     #endregion
 
-    internal class Problem1 : ProblemBase<Problem1.Output, Problem1.Input>
+    public class Problem1 : ProblemBase<Problem1.Output, Problem1.Input>
     {
         #region ProblemItems
 
-        internal class Input
+        public class Input
         {
             public int Start { get; set; }
 
@@ -45,7 +45,7 @@ namespace LeetCodeTasks.Promlems
             }
         }
 
-        internal class Output : IEquatable<Output>
+        public class Output : IEquatable<Output>
         {
             public int Result { get; set; }
 

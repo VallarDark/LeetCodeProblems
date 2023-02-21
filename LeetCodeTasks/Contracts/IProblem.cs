@@ -1,6 +1,6 @@
 ﻿namespace LeetCodeTasks.Contracts
 {
-    internal interface IProblem
+    public interface IProblem
     {
         bool Check();
     }

@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace LeetCodeTasks.Contracts
 {
-    internal abstract class ProblemBase<Output, Input> : IProblem
+    public abstract class ProblemBase<Output, Input> : IProblem
     {
         private ProblemSolution<Output, Input> _problemSolution;
 
@@ -12,7 +12,7 @@ namespace LeetCodeTasks.Contracts
         public ProblemBase()
         {
             _problemSolution = new ProblemSolution<Output, Input>(Solution);
-            _ProblemTestCases = new List<ProblemTestCase<Output, Input>>();
+            _ProblemTestCases = new List<ProblemTestCase<Output, Input>>(); ;
         }
 
         public virtual bool Check()

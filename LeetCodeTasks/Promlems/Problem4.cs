@@ -1,4 +1,6 @@
-﻿using LeetCodeTasks.Contracts;
+﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Reports;
+using LeetCodeTasks.Contracts;
 using LeetCodeTasks.ProblemItems;
 using System.Text;
 
@@ -38,11 +40,11 @@ namespace LeetCodeTasks.Promlems
 
     #endregion
 
-    internal class Problem4 : ProblemBase<Problem4.Output, Problem4.Input>
+    public class Problem4 : ProblemBase<Problem4.Output, Problem4.Input>, IDiagnosable
     {
         #region ProblemItems
 
-        internal class Input
+        public class Input
         {
             public string Data { get; set; }
 
@@ -50,9 +52,14 @@ namespace LeetCodeTasks.Promlems
             {
                 Data = data;
             }
+
+            public override string ToString()
+            {
+                return Data;
+            }
         }
 
-        internal class Output : IEquatable<Output>
+        public class Output : IEquatable<Output>
         {
             public int Length { get; set; }
 
@@ -64,6 +71,56 @@ namespace LeetCodeTasks.Promlems
             public bool Equals(Output? other)
             {
                 return other?.Length == Length;
+            }
+        }
+
+        #endregion
+
+        #region ProblemSolutionDiagnoser
+
+        public class Diagnoser : DiagnosableBase<Diagnoser>
+        {
+            public List<Input> Inputs { get; set; }
+
+            public Diagnoser()
+            {
+                Inputs = new List<Input>()
+                {
+                    new Input(""),
+                    new Input(" "),
+                    new Input("    "),
+                    new Input("bbbbbbb"),
+                    new Input("wfafwewfaeffe"),
+                    new Input("EWFWAFWWFUHWFEFGWEYEWFBBbhibwwibfbbdcbsdbddfga"),
+                    new Input("srrrrrfsvvwbbegwgwddsdfwgrgrwc3gghwhwwggwggrg3t455y56fgsvs"),
+                    new Input("eretaavffferhIUIsfwipVYEfygfpewuhfwgwrgr4553324442223555523525fffgtherrh"),
+                    new Input("dsqggafusgqadvgqdedggildqdgdgpqgfwaggagwwfweffwffdwddgqivwdwpqdpqgqgGPGDEGEG0WYFWr"),
+                    new Input("dwfeffeefwefwefgrthhtegefwfdgwgdywgfpgywfpgfdwdscsgfdugfggwfgwfudfguwefupwffgu[wguguguofw[[wwhehrwrg"),
+                    new Input("whhfwilwfebbBIIFEPehpfweifwpepefpefevwfvpwvfwevffvwfwfbpfguwqfhetipqhquohfeiphpihfnfbjeffq[qffofvfvfjfdvwf;wf"),
+                    new Input("hggaiowefaifawfdawfgywfgwfagfusdufg0sffgywfgyewfegwhwrrwffwwfyywfgwygfyfgyfefygGGVJHCVJDBDWIHBJvfjnngjgeougsudssjjjjsjsdd"),
+                    new Input("wgwgygpwfuepguhfhwu[ufgwowufuwgupfguwpufgwef'gowefufu  9guw9aaefipyfwoiwfe'hwfeugwo;jgjfgwyfguweufefhwefuwf;gwwgwggwfgrgehteghieri  wfwfwfe")
+                };
+            }
+
+            [Benchmark(Baseline = true)]
+            [ArgumentsSource(nameof(Inputs))]
+            public void BaselineBenchmark(Input input)
+            {
+                LengthOfLongestSubstring3(input.Data);
+            }
+
+            [Benchmark]
+            [ArgumentsSource(nameof(Inputs))]
+            public void Benchmark2(Input input)
+            {
+                LengthOfLongestSubstring2(input.Data);
+            }
+
+            [Benchmark]
+            [ArgumentsSource(nameof(Inputs))]
+            public void Benchmark3(Input input)
+            {
+                LengthOfLongestSubstring(input.Data);
             }
         }
 
@@ -109,7 +166,7 @@ namespace LeetCodeTasks.Promlems
 
         protected override Output Solution(Input input)
         {
-            return new Output(LengthOfLongestSubstring2(input.Data));
+            return new Output(LengthOfLongestSubstring3(input.Data));
         }
 
 
@@ -117,7 +174,7 @@ namespace LeetCodeTasks.Promlems
         /// 1st solution
         /// </summary>
 
-        private int LengthOfLongestSubstring(string data)
+        private static int LengthOfLongestSubstring(string data)
         {
             int maxLength = 0;
             StringBuilder currentSubString = new StringBuilder();
@@ -147,7 +204,7 @@ namespace LeetCodeTasks.Promlems
         /// 2nd solution
         /// </summary>
 
-        private int LengthOfLongestSubstring2(string data)
+        private static int LengthOfLongestSubstring2(string data)
         {
             int maxLength = 1;
             bool hasSameChar = false;
@@ -191,7 +248,7 @@ namespace LeetCodeTasks.Promlems
         /// 3rd solution
         /// </summary>
 
-        private int LengthOfLongestSubstring3(string data)
+        private static int LengthOfLongestSubstring3(string data)
         {
             if (data.Length == 0)
             {
@@ -208,7 +265,7 @@ namespace LeetCodeTasks.Promlems
             return maxLength;
         }
 
-        private void LengthOfLongestSubstring3Inner(ref string data, ref int maxLength, int startIndex)
+        private static void LengthOfLongestSubstring3Inner(ref string data, ref int maxLength, int startIndex)
         {
             for (int j = startIndex + 1; j < data.Length; j++)
             {
@@ -225,6 +282,11 @@ namespace LeetCodeTasks.Promlems
                     maxLength = j - startIndex + 1;
                 }
             }
+        }
+
+        public Summary GetSummary()
+        {
+            return Diagnoser.GetSummary();
         }
 
         #endregion

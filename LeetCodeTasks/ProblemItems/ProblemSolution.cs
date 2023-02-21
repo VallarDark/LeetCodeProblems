@@ -1,6 +1,6 @@
 ﻿namespace LeetCodeTasks.ProblemItems
 {
-    internal class ProblemSolution<OutputData, InputData>
+    public class ProblemSolution<OutputData, InputData>
     {
         private readonly Func<InputData, OutputData> _func;
 

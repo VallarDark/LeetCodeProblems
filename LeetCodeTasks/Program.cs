@@ -1,26 +1,30 @@
 ﻿using LeetCodeTasks.Contracts;
 using LeetCodeTasks.Promlems;
 
-var tasks = new List<IProblem>();
+var problems = new List<IProblem>();
 
-tasks.Add(new Problem1());
-tasks.Add(new Problem2());
-tasks.Add(new Problem3());
-tasks.Add(new Problem4());
+problems.Add(new Problem1());
+problems.Add(new Problem2());
+problems.Add(new Problem3());
+problems.Add(new Problem4());
 
-for (int i = 0; i < tasks.Count; i++)
+for (int i = 0; i < problems.Count; i++)
 {
-    var task = tasks[i];
+    var problem = problems[i];
 
     Console.WriteLine($"Problem № {i + 1}:");
 
     try
     {
-        if (task.Check())
+        if (problem.Check())
         {
             Console.WriteLine("All tests cases passed");
         }
 
+        if (problem is IDiagnosable diagnosableProblem)
+        {
+            var result = diagnosableProblem.GetSummary();
+        }
     }
     catch (Exception ex)
     {
@@ -29,3 +33,6 @@ for (int i = 0; i < tasks.Count; i++)
 
     Console.WriteLine();
 }
+
+//// the way to check which method is faster 
+//BenchmarkRunner.Run<Problem4.Diagnoser>();
