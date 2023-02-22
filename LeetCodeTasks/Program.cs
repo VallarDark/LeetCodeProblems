@@ -1,12 +1,15 @@
 ﻿using LeetCodeTasks.Contracts;
 using LeetCodeTasks.Promlems;
 
+bool shouldBeDiagnosed = false;
+
 var problems = new List<IProblem>();
 
 problems.Add(new Problem1());
 problems.Add(new Problem2());
 problems.Add(new Problem3());
 problems.Add(new Problem4());
+problems.Add(new Problem5());
 
 for (int i = 0; i < problems.Count; i++)
 {
@@ -21,7 +24,7 @@ for (int i = 0; i < problems.Count; i++)
             Console.WriteLine("All tests cases passed");
         }
 
-        if (problem is IDiagnosable diagnosableProblem)
+        if (shouldBeDiagnosed && problem is IDiagnosable diagnosableProblem)
         {
             var result = diagnosableProblem.GetSummary();
         }
@@ -33,6 +36,3 @@ for (int i = 0; i < problems.Count; i++)
 
     Console.WriteLine();
 }
-
-//// the way to check which method is faster 
-//BenchmarkRunner.Run<Problem4.Diagnoser>();
