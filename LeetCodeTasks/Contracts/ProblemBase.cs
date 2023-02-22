@@ -24,18 +24,18 @@ namespace LeetCodeTasks.Contracts
 
             return _ProblemTestCases.All(e =>
                 {
-                    if (e.Input == null || e.CorrectResult == null)
+                    if (e.Input == null || e.CorrectResults == null)
                     {
                         throw new Exception("Wrong test data");
                     }
 
                     var solutionResult = _problemSolution.Solve(e.Input);
 
-                    var result = ((IEquatable<Output>)e.CorrectResult).Equals(solutionResult);
+                    var result = e.CorrectResults.Any(r => (r as IEquatable<Output>)?.Equals(solutionResult) ?? false);
 
                     if (!result)
                     {
-                        throw new Exception($"\t Test didn't pass: Input data: {JsonSerializer.Serialize(e.Input)}\n\t Expected result: {JsonSerializer.Serialize(e.CorrectResult)} but was {JsonSerializer.Serialize(solutionResult)} ");
+                        throw new Exception($"\t Test didn't pass: Input data: {JsonSerializer.Serialize(e.Input)}\n\t Expected result: one of {JsonSerializer.Serialize(e.CorrectResults)} but was {JsonSerializer.Serialize(solutionResult)} ");
                     }
 
                     return result;

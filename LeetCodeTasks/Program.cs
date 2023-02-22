@@ -10,12 +10,13 @@ problems.Add(new Problem2());
 problems.Add(new Problem3());
 problems.Add(new Problem4());
 problems.Add(new Problem5());
+problems.Add(new Problem6());
 
 for (int i = 0; i < problems.Count; i++)
 {
     var problem = problems[i];
 
-    Console.WriteLine($"Problem № {i + 1}:");
+    Console.WriteLine($"{problem.GetType().Name}:");
 
     try
     {

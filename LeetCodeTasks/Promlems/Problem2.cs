@@ -83,19 +83,19 @@ namespace LeetCodeTasks.Promlems
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 2, 7, 11, 15 }, 9),
-                    correctResult: new Output(new[] { 0, 1 })
+                    correctResults: new Output(new[] { 0, 1 })
                 ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 3, 2, 4 }, 6),
-                    correctResult: new Output(new[] { 1, 2 })
+                    correctResults: new Output(new[] { 1, 2 })
                 ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 3, 3 }, 6),
-                    correctResult: new Output(new[] { 0, 1 })
+                    correctResults: new Output(new[] { 0, 1 })
                 ));
         }
 

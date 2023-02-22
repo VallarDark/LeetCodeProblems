@@ -124,6 +124,11 @@ namespace LeetCodeTasks.Promlems
             }
         }
 
+        public Summary GetSummary()
+        {
+            return Diagnoser.GetSummary();
+        }
+
         #endregion
 
         #region ProblemSetup
@@ -132,31 +137,31 @@ namespace LeetCodeTasks.Promlems
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("abcabcbb"),
-                    correctResult: new Output(3)
+                    correctResults: new Output(3)
                 ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("bbbbb"),
-                    correctResult: new Output(1)
+                    correctResults: new Output(1)
                 ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("pwwkew"),
-                    correctResult: new Output(3)
+                    correctResults: new Output(3)
                 ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(" "),
-                    correctResult: new Output(1)
+                    correctResults: new Output(1)
                 ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input("dvdf"),
-                    correctResult: new Output(3)
+                    correctResults: new Output(3)
                 ));
         }
 
@@ -282,11 +287,6 @@ namespace LeetCodeTasks.Promlems
                     maxLength = j - startIndex + 1;
                 }
             }
-        }
-
-        public Summary GetSummary()
-        {
-            return Diagnoser.GetSummary();
         }
 
         #endregion

@@ -140,7 +140,7 @@ namespace LeetCodeTasks.Promlems
                                 6, new ListNode(
                                     4)))),
 
-                    correctResult: new Output(
+                    correctResults: new Output(
                         new ListNode(
                             7, new ListNode(
                                 0, new ListNode(
@@ -153,7 +153,7 @@ namespace LeetCodeTasks.Promlems
                         new ListNode(0),
                         new ListNode(0)),
 
-                    correctResult: new Output(
+                    correctResults: new Output(
                         new ListNode(0))
                 ));
 
@@ -174,7 +174,7 @@ namespace LeetCodeTasks.Promlems
                                     9, new ListNode(
                                         9))))),
 
-                    correctResult: new Output(
+                    correctResults: new Output(
                         new ListNode(
                             8, new ListNode(
                                 9, new ListNode(

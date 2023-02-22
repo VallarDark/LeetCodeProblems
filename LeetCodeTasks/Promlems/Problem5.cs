@@ -71,13 +71,13 @@ namespace LeetCodeTasks.Promlems
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 1, 3 }, new[] { 2 }),
-                    correctResult: new Output(2)
+                    correctResults: new Output(2)
             ));
 
             _ProblemTestCases.Add(new ProblemTestCase<Output, Input>
                 (
                     inputData: new Input(new[] { 1, 2 }, new[] { 3, 4 }),
-                    correctResult: new Output(2.5d)
+                    correctResults: new Output(2.5d)
                 ));
         }
 

@@ -4,12 +4,12 @@
     {
         public InputData Input { get; set; }
 
-        public OutputData CorrectResult { get; set; }
+        public List<OutputData> CorrectResults { get; set; }
 
-        public ProblemTestCase(InputData inputData, OutputData correctResult)
+        public ProblemTestCase(InputData inputData, params OutputData[] correctResults)
         {
             this.Input = inputData;
-            CorrectResult = correctResult;
+            CorrectResults = new List<OutputData>(correctResults);
         }
     }
 }
